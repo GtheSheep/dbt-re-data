@@ -13,6 +13,9 @@
 {% endmacro %}
 
 {% macro re_data_last_base_metrics_thread(num) %}
+
+-- depends_on: {{ ref('re_data_alerts') }}
+
     {% set part_name = 're_data_last_base_metrics_part' ~ num %}
     {{ re_data.generate_depends(['re_data_selected', 're_data_monitored', 're_data_columns', 're_data_run_started_at', part_name]) }}
 
